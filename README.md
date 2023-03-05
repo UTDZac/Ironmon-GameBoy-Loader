@@ -1,8 +1,9 @@
 ## Ironmon-GameBoy-Loader
 A simple script to automatically randomize Ironmon game ROMs for Gen 1 Pokémon games.
 
-#### Compatibility Notes
-- This script is only compatible with [Bizhawk 2.8](https://github.com/TASEmulators/BizHawk/releases/tag/2.8)
+#### Compatibility Notes and Requirements
+- You will need [Java 64-bit Offline](https://www.java.com/en/download/manual.jsp) to use this script
+- This script is only compatible with [Bizhawk 2.8](https://github.com/TASEmulators/BizHawk/releases/tag/2.8) emulator
 - This script uses the [official Ironmon randomizer settings](https://gist.github.com/UTDZac/a147c497424dfbd537d8c4b0c22b5621#red--blue--yellow) for [v4.6.0 of the Randomizer ZX program](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/releases/tag/v4.6.0)
 
 ## Download
