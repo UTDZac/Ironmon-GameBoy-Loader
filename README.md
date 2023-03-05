@@ -31,8 +31,18 @@ Now that the script is loaded, you can create a new randomized Ironmon game rom 
 If you want to save your game and come back to it later, be sure to use a save-state. The game ROM you want to load to continue playing will be the `RBY Rom AutoRandomized.gbc` file found in the "Ironmon GameBoy Loader" folder.
 
 ## Configuration
-As this script is fairly lightweight, if you want to change something about it then you'll have to edit the script file `GameBoyLoader.lua` itself. You can do so with any text editor program such as Notepad. For example, you can change the button combo to create a new randomized from by changing the following line of code:
+As this script is fairly lightweight, if you want to change something about it then you'll have to edit the script file `GameBoyLoader.lua` itself. You can do so with any text editor program such as Notepad.
+
+For example, you can change the button combo to create a new randomized from by changing the following line of code:
 ```lua
 GameBoyLoader.buttonCombo = "A, B, Start"
 -- ... changed to ...
 GameBoyLoader.buttonCombo = "A, B, L, R"
+```
+
+Or you can change the Ironmon challenge difficulty from Kaizo to Survival:
+```lua
+GameBoyLoader.settingsFile = "RBY_Kaizo.rnqs"
+-- ... changed to ...
+GameBoyLoader.settingsFile = "RBY_Survival.rnqs"
+```
