@@ -12,6 +12,7 @@ A simple script to automatically randomize Ironmon game ROMs for Gen 1 Pokémon 
    - The following instructions will call this folder **"Ironmon GameBoy Loader"**
 
 ## Install and Setup
+This loader assumes you are playing **Pokémon Yellow** and are using [brdy's pseudo-fluctuating exp curve patch](https://drive.google.com/file/d/1z4pOs0tnzb-FV7_vuSKQT_JEl6wqhFGJ/view?usp=share_link). If this is not the case, please see the [Configuration](https://github.com/UTDZac/Ironmon-GameBoy-Loader#configuration) section below for instructions on changing this setting on the loader.
 1) Place a copy of your Gen 1 Pokémon game ROM into the "Ironmon GameBoy Loader" folder
 2) Rename your ROM to exactly `Rom.gb`, so the script can find it
 
@@ -48,7 +49,7 @@ GameBoyLoader.fluctuatingCurve = true
 GameBoyLoader.fluctuatingCurve = false
 ```
 
-Or you can change the Ironmon challenge difficulty from Kaizo to Survival:
+You can also change the Ironmon challenge difficulty from Kaizo to Survival with the following change:
 ```lua
 GameBoyLoader.settingsFile = "RBY_Kaizo.rnqs"
 -- ... changed to ...
