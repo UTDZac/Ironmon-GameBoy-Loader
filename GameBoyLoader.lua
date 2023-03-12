@@ -1,8 +1,12 @@
+---@diagnostic disable: undefined-global
 GameBoyLoader = {}
 
 function GameBoyLoader.init()
-	-- Quickload button combo to create a new rom
+	-- Quickload button combo to create a new ROM
 	GameBoyLoader.buttonCombo =			"A, B, Start"
+
+	-- Are you using a patched ROM with pseudo-fluctuating exp curve? 'true' for Yes, 'false' for No
+	GameBoyLoader.fluctuatingCurve =	true
 
 	-- Loader files
 	GameBoyLoader.romName =				"Rom.gb"
@@ -12,7 +16,7 @@ function GameBoyLoader.init()
 	GameBoyLoader.randomizedRomName =	"RBY Rom AutoRandomized.gbc"
 
 	-- Other stuff
-	GameBoyLoader.version = "1.0"
+	GameBoyLoader.version = "1.1"
 	GameBoyLoader.slash = package.config:sub(1,1) or "\\" -- Windows is \ and Linux is /
 	GameBoyLoader.dir = ""
 	GameBoyLoader.folder = "" -- Currently unused
@@ -85,13 +89,21 @@ function GameBoyLoader.generateNewRom()
 		workingDir .. GameBoyLoader.romName,
 		workingDir .. GameBoyLoader.randomizedRomName
 	)
-	local javaCommand2 = string.format(
-		'java -Xmx4608M -jar "%s" cli -s "%s" -i "%s" -o "%s"',
-		workingDir .. GameBoyLoader.randomizerJar,
-		workingDir .. GameBoyLoader.settingsFileCurve,
-		workingDir .. GameBoyLoader.randomizedRomName,
-		workingDir .. GameBoyLoader.randomizedRomName
-	)
+
+	local javaCommand2
+
+	if GameBoyLoader.fluctuatingCurve then
+		javaCommand2 = javaCommand1
+		javaCommand1 = 'echo Fluctuating curve detected.' -- Display this first
+	else
+		javaCommand2 = string.format(
+			'java -Xmx4608M -jar "%s" cli -s "%s" -i "%s" -o "%s"',
+			workingDir .. GameBoyLoader.randomizerJar,
+			workingDir .. GameBoyLoader.settingsFileCurve,
+			workingDir .. GameBoyLoader.randomizedRomName,
+			workingDir .. GameBoyLoader.randomizedRomName
+		)
+	end
 
 	local batchCommands = {
 		'echo Randomizing a new ROM...',
