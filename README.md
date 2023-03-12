@@ -41,6 +41,13 @@ GameBoyLoader.buttonCombo = "A, B, Start"
 GameBoyLoader.buttonCombo = "A, B, L, R"
 ```
 
+**If you are NOT using brdy's pseudo-fluctuating exp curve patch for Yellow**, change this line of code from true to false:
+```lua
+GameBoyLoader.fluctuatingCurve = true
+-- ... changed to ...
+GameBoyLoader.fluctuatingCurve = false
+```
+
 Or you can change the Ironmon challenge difficulty from Kaizo to Survival:
 ```lua
 GameBoyLoader.settingsFile = "RBY_Kaizo.rnqs"
